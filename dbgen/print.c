@@ -94,9 +94,17 @@ print_prep(int table, int update)
 				}
 		return(fopen(upath, "w"));
         }
-    res = tbl_open(table, "w");
-    OPEN_CHECK(res, tdefs[table].name);
-    return(res);
+    
+	if (zstdout) 
+	{
+		return(stdout);
+	}
+	else
+	{
+		res = tbl_open(table, "w");
+		OPEN_CHECK(res, tdefs[table].name);
+		return(res);
+	}
 }
 
 int

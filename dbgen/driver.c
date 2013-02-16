@@ -392,6 +392,7 @@ usage (void)
 	fprintf (stderr, "-S <n> -- build the <n>th step of the data/update set (used with -C or -U)\n");
 	fprintf (stderr, "-U <n> -- generate <n> update sets\n");
 	fprintf (stderr, "-v     -- enable VERBOSE mode\n");
+	fprintf (stderr, "-z     -- output to stdout\n");
 	fprintf (stderr, "\nAdvanced Options\n===========================\n");
 	fprintf (stderr, "-b <s> -- load distributions for <s> (default: dists.dss)\n");
     fprintf (stderr, "-d <n> -- split deletes between <n> files (requires -U)\n");
@@ -451,7 +452,7 @@ process_options (int count, char **vector)
 	FILE *pF;
 	
 	while ((option = getopt (count, vector,
-		"b:C:d:fi:hO:P:qs:S:T:U:v")) != -1)
+		"b:C:d:fi:hO:P:qs:S:T:U:vz")) != -1)
 	switch (option)
 	{
 		case 'b':				/* load distributions from named file */
@@ -520,6 +521,9 @@ process_options (int count, char **vector)
 			break;
 		case 'v':				/* life noises enabled */
 			verbose = 1;
+			break;
+		case 'z':				/* output to stdout */
+			zstdout = 1;
 			break;
 		case 'T':				/* generate a specifc table */
 			switch (*optarg)
