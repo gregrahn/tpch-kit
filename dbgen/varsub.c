@@ -39,6 +39,7 @@
 *
 *
 */
+#include "config.h"
 #include <stdio.h>
 #ifndef _POSIX_SOURCE
 #include <malloc.h>
@@ -47,7 +48,6 @@
 #include <unistd.h>
 #endif /* WIN32 */
 #include <string.h>
-#include "config.h"
 #include "dss.h"
 #include "tpcd.h"
 #ifdef ADHOC
