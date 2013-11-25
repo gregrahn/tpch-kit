@@ -479,7 +479,7 @@ int dbg_print(int dt, FILE *tgt, void *data, int len, int eol);
 #define PR_MONEY(f, str) 		dbg_print(DT_MONEY, f, (void *)str, 0, 1)
 #define PR_CHR(f, str)	 		dbg_print(DT_CHR, f, (void *)str, 0, 1)
 #define  PR_STRT(fp)   /* any line prep for a record goes here */
-#define  PR_END(fp)    fprintf(fp, "\n")   /* finish the record here */
+#define PR_END(fp) {fseek(fp, -1, SEEK_CUR);fprintf(fp, "\n");}   /* finish the record here */
 #ifdef MDY_DATE
 #define  PR_DATE(tgt, yr, mn, dy)	\
    sprintf(tgt, "%02d-%02d-19%02d", mn, dy, yr)
