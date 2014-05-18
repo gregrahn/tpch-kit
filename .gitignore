@@ -1,4 +1,4 @@
 *.o
 *.tbl
-dbgen
-qgen
+dbgen/dbgen
+dbgen/qgen
