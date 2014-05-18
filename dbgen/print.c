@@ -439,7 +439,7 @@ pr_drange(int tbl, DSS_HUGE min, DSS_HUGE cnt, long num)
 			}
 		}
 		PR_STRT(dfp);
-		PR_HUGE(dfp, &new);
+		PR_HUGE_LAST(dfp, &new);
 		PR_END(dfp);
 		start = new;
 		last = new;
