@@ -51,18 +51,18 @@
 *
 *
 */
-/* 
+/*
  * this file allows the compilation of DBGEN to be tailored to specific
- * architectures and operating systems. Some options are grouped 
+ * architectures and operating systems. Some options are grouped
  * together to allow easier compilation on a given vendor's hardware.
- * 
+ *
  * The following #defines will effect the code:
  *   KILL(pid)         -- how to terminate a process in a parallel load
  *   SPAWN             -- name of system call to clone an existing process
  *   SET_HANDLER(proc) -- name of routine to handle signals in parallel load
  *   WAIT(res, pid)    -- how to await the termination of a child
  *   SEPARATOR         -- character used to separate fields in flat files
- *   STDLIB_HAS_GETOPT -- to prevent confilcts with gloabal getopt() 
+ *   STDLIB_HAS_GETOPT -- to prevent confilcts with gloabal getopt()
  *   MDY_DATE          -- generate dates as MM-DD-YY
  *   WIN32             -- support for WindowsNT
  *   SUPPORT_64BITS    -- compiler defines a 64 bit datatype
@@ -79,7 +79,7 @@
  *   IBM        -- posix source inclusion differences
  *   SGI        -- getopt() handling
  *   SUN        -- getopt() handling
- *   LINUX      
+ *   LINUX
  *   WIN32      -- for WINDOWS
  *
  *   DATABASE defines
@@ -131,8 +131,8 @@
 #define STDLIB_HAS_GETOPT
 #define SUPPORT_64BITS
 #define DSS_HUGE long long
-#define HUGE_FORMAT	"%lld" 
-#define HUGE_DATE_FORMAT	"%02lld" 
+#define HUGE_FORMAT	"%lld"
+#define HUGE_DATE_FORMAT	"%02lld"
 #define RNG_A	6364136223846793005ull
 #define RNG_C	1ull
 #endif /* IBM */
@@ -141,13 +141,13 @@
 #define STDLIB_HAS_GETOPT
 #define SUPPORT_64BITS
 #define DSS_HUGE long long int
-#define HUGE_FORMAT	"%lld" 
-#define HUGE_DATE_FORMAT	"%02lld" 
+#define HUGE_FORMAT	"%lld"
+#define HUGE_DATE_FORMAT	"%02lld"
 #define RNG_A	6364136223846793005ull
 #define RNG_C	1ull
 #endif /* LINUX */
 
-#ifdef OSX
+#ifdef MACOS
 #define _POSIX_C_SOURCE 200112L
 #define _POSIX_SOURCE
 #define STDLIB_HAS_GETOPT
@@ -157,7 +157,7 @@
 #define HUGE_DATE_FORMAT	"%02ld"
 #define RNG_A	6364136223846793005ull
 #define RNG_C	1ull
-#endif /* OSX */
+#endif /* MACOS */
 
 #ifdef SUN
 #define STDLIB_HAS_GETOPT
@@ -165,8 +165,8 @@
 #define RNG_C	1ull
 #define SUPPORT_64BITS
 #define DSS_HUGE long long
-#define HUGE_FORMAT	"%lld" 
-#define HUGE_DATE_FORMAT	"%02lld" 
+#define HUGE_FORMAT	"%lld"
+#define HUGE_DATE_FORMAT	"%02lld"
 #endif /* SUN */
 
 #ifdef SGI
@@ -200,7 +200,7 @@
 /* these are copied from Linux/GNU and need to be verified as part of a rework of */
 /* process handling under NT (29 Apr 98) */
 #define WIFEXITED(s)	((s & 0xFF) == 0)
-#define WIFSIGNALED(s)	(((unsigned int)((status)-1) & 0xFFFF) < 0xFF)	
+#define WIFSIGNALED(s)	(((unsigned int)((status)-1) & 0xFFFF) < 0xFF)
 #define WIFSTOPPED(s)	(((s) & 0xff) == 0x7f)
 #define WTERMSIG(s)		((s) & 0x7f)
 #define WSTOPSIG(s)		(((s) & 0xff00) >> 8)
@@ -228,4 +228,3 @@
 #ifndef DOUBLE_CAST
 #define DOUBLE_CAST (double)
 #endif /* DOUBLE_CAST */
-
