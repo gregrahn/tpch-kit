@@ -11,14 +11,14 @@ from
 	(
 		select
 			c_custkey,
-			count(o_orderkey)
+			count(o_orderkey) c_count
 		from
 			customer left outer join orders on
 				c_custkey = o_custkey
 				and o_comment not like '%:1%:2%'
 		group by
 			c_custkey
-	) as c_orders (c_custkey, c_count)
+	)
 group by
 	c_count
 order by
