@@ -13,4 +13,3 @@ where
 	and l_shipdate < date ':1' + interval '1' year
 	and l_discount between :2 - 0.01 and :2 + 0.01
 	and l_quantity < :3;
-:n -1

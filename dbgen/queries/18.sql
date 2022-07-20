@@ -35,5 +35,5 @@ group by
 	o_totalprice
 order by
 	o_totalprice desc,
-	o_orderdate;
+	o_orderdate
 :n 100
