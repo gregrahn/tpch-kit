@@ -21,4 +21,3 @@ where
 		where
 			l_partkey = p_partkey
 	);
-:n -1
